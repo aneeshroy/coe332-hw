@@ -34,7 +34,7 @@ for i in range(len(ml_data["sites"])):
 
 print ("=====================================")
 
-print (5, "total legs: total time elapsed = ", totaltime, " hr")
+print (5, "total legs: total time elapsed =", totaltime, "hr")
 
 
 
