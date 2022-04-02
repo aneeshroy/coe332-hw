@@ -31,7 +31,7 @@ def data_summary(ml_data) -> _void:
              hemi_count[1] +=1
         if check_hemisphere(float(row['reclat']), float(row['reclong'])) == 'Southern & Western':
              hemi_count[2] +=1
-        if check_hemisphere(float(row['reclat']), float(row['reclong'])) == 'Southern & Eastern':
+        else:
              hemi_count[3] +=1
     
     print('Hemisphere summary data:')
