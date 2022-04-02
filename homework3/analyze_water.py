@@ -24,8 +24,9 @@ def calc_turbidity(water_samples : list, num_samples : int = 5) -> float:
         T (float): Turbidity in NTU
     '''
 
-    sampleTs = [sample['calibration_constant']*sample['detector_current'] for sample in water_samples]
-    turb = sum(sampleTs)/num_samples
+    recent_turbs = [sample['calibration_constant']*sample['detector_current'] for sample in water_samples]
+    
+    turb = sum(recent_turbs[-5:])/num_samples #last 5 of set are most recent
     
     return turb
     
@@ -33,7 +34,8 @@ def calc_turbidity(water_samples : list, num_samples : int = 5) -> float:
 def calc_safety_time(currenturb: float) -> float:
     '''
     Calculates the min time for the water to go below the turbidity threshold through the equation:
-        Ts > T0(1-d)**b  <=>  therefore  b = log(Ts/T0)/log(1-d)   
+        Ts > T0(1-d)**b
+        therefore  b = log(Ts/T0)/log(1-d)   
 
         Ts = Turbidity threshold for safe water
         T0 = Current turbidity
@@ -59,6 +61,7 @@ def main():
     turb = calc_turbidity(water_samples['turbidity_data'])
     hrs_safe_water = calc_safety_time(turb)
 
+    print(calc_turbidity([], 1))
 
     print('Average turbidity based on most recent five measurements =', turb, 'NTU')
 

@@ -8,7 +8,6 @@ def test_calc_turbidity():
      "sample_volume": 1.19,
      "calibration_constant": 1.022,
      "detector_current": 1.137,
-     "analyzed_by": "C. Milligan"
     }], 1)) == float
 
     assert calc_turbidity([{
@@ -16,26 +15,7 @@ def test_calc_turbidity():
      "sample_volume": 1.19,
      "calibration_constant": 1.022,
      "detector_current": 1.137,
-     "analyzed_by": "C. Milligan"
     }], 1) == 1.137 * 1.022
-
-    assert calc_turbidity([{
-     "datetime": "2022-02-01 00:00",
-     "sample_volume": 2.0,
-     "calibration_constant": 1.09,
-     "detector_current": 1.5,
-     "analyzed_by": "C. Milligan"
-    },
-    {
-     "datetime": "2022-02-01 00:00",
-     "sample_volume": 1.19,
-     "calibration_constant": 1.022,
-     "detector_current": 1.137,
-     "analyzed_by": "C. Milligan"
-    }], 2) == (1.09*1.5 + 1.137*1.022)/2 #1.398507
-
-    with pytest.raises(ValueError):
-        calc_turbidity([], 1) 
 
     with pytest.raises(KeyError):
         calc_turbidity([{
@@ -44,6 +24,10 @@ def test_calc_turbidity():
      "calibration_constant": 1.09,
      "analyzed_by": "C. Milligan"
     }], 1) # no detector current
+
+    with pytest.raises(ZeroDivisionError):
+        calc_turbidity([], 1) 
+
 
 
 def test_calc_safety_time():
