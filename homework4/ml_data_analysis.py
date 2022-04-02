@@ -110,11 +110,10 @@ def count_classes(a_list_of_dicts: List[dict], a_key_string: str) -> dict:
 
 
 def main():
-    input = str(sys.argv[1])
 
     logging.debug('entering main loop')
 
-    with open(input, 'r') as f:
+    with open(sys.argv[1], 'r') as f:
         ml_data = json.load(f)
 
     logging.debug(f'the type of ml_data is {type(ml_data)}')

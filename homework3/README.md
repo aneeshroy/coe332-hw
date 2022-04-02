@@ -29,4 +29,4 @@ Average turbidity based on most recent five measurements = 1.1621637999999999 NT
 WARNING:root:Turbidity is above threshold for safe use
 Minimum time required to return below a safe threshold = 7.4387858017596855 hours
 ```
-3. 
+3. To see the results of `test_analyze_water.py`, run the program and then use `pytest` command in the terminal to see the results.
