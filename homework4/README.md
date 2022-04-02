@@ -107,8 +107,8 @@ cd code
 python3 ml_data_analysis.py Meteorite_Landings.json
 ```
 
-## Run the containerized code against user-provided data that they may have found on the web <a name="paragraph2"></a>
-    
+### Run the containerized code against user-provided data that they may have found on the web
+
 1.  Assuming you are in your own image when beginning, you can use you own data using the wget command: 
 ```python
 wget https://<your_webstite_url_here>.com
