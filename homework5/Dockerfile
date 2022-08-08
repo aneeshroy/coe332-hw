@@ -6,8 +6,8 @@ WORKDIR /app
 RUN pip3 install Flask==2.0.3 \
                  redis   
 
-COPY app.py /data/app.py
-COPY ML_Data_Sample.json /data/ML_Data_Sample.json
+COPY app.py /app/app.py
+COPY ML_Data_Sample.json /app/ML_Data_Sample.json
 
 ENTRYPOINT ["python"]
 CMD ["app.py"]

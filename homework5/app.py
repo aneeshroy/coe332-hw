@@ -5,9 +5,6 @@ import logging
 
 app = Flask(__name__)
 
-ml_data = {}
-red = redis.Redis(host = "172.17.0.3", port = 6379)
-
 @app.route('/data', methods=['GET', 'POST'])
 def data():
 
@@ -26,6 +23,10 @@ def data():
     POST: A string indicating the data was committed to the redis database
 
     """
+
+    red = redis.Redis(host = "172.17.0.3", port = 6425, db = 25)
+
+    ml_data = {}
 
     if request.method == 'POST':
 
@@ -50,7 +51,7 @@ def data():
 
         return ML_data
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     app.run(debug = True, host = '0.0.0.0')
 
 
