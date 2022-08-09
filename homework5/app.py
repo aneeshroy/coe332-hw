@@ -24,9 +24,9 @@ def data():
 
     """
 
-    red = redis.Redis(host = "172.17.0.3", port = 6425, db = 25)
+    red = redis.Redis(host = "172.17.0.2", port = 6379, db = 0)
 
-    ml_data = {}
+    global ml_data
 
     if request.method == 'POST':
 
@@ -35,8 +35,10 @@ def data():
         with open('ML_Data_Sample.json', 'r') as f:
             ml_data = json.load(f)
 
-        red.set("ml_data", json.dumps(ml_data['meteorite_landings']))
-        return "data loaded into database"
+        for i in ml_data['meteorite_landings']:
+            red.set(i,json.dumps(i))
+
+        return "data loaded into database\n"
        
     else:
         
@@ -44,13 +46,13 @@ def data():
 
         tempdata = []
 
-        for i in ml_data['meteorite_landings']:
+        for i in ml_data:
             tempdata.append(json.loads(red.get(i)))
 
-        ML_data = json.dumps(tempdata, indent = 2)
+        finaldata = json.dumps(tempdata, indent = 2)
 
-        return ML_data
+        return finaldata
 
-if __name__ == "__main__": 
-    app.run(debug = True, host = '0.0.0.0')
+if __name__ == "__main__":
+   app.run(debug = True, host = '0.0.0.0')
 
