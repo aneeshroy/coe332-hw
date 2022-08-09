@@ -51,10 +51,6 @@ def data():
 
         return ML_data
 
-<<<<<<< HEAD
 if __name__ == "__main__": 
     app.run(debug = True, host = '0.0.0.0')
-=======
-if __name__ == "__main__":
-    app.run(debug = True, host = '0.0.0.0')
->>>>>>> 3517c225d55277cf3b3230b49c5d8487b7496e19
+
