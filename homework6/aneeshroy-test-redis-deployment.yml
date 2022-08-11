@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ar68498-test-redis-deployment
+  labels:
+    username: ar68498
+    env: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ar68498-test-redis
+  template:
+    metadata:
+      labels:
+        username: ar68498
+        env: test
+        app: ar68498-test-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:6
+          volumeMounts:
+            - name: ar68498-test-redis-data
+              mountPath: "/data"
+      volumes:
+      - name: ar68498-test-redis-pvc
+        persistentVolumeClaim:
+          claimName: ar68498-test-redis-data
+

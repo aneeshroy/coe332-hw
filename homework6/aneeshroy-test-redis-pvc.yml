@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ar68498-test-redis-pvc
+  name: ar68498-test-redis-data
   labels:
     username: ar68498
     env: test
