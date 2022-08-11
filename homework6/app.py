@@ -55,5 +55,8 @@ def data():
 
 if __name__ == "__main__":
 
-   app.run(debug = True, host = '0.0.0.0')
+    with open('ML_Data_Sample.json', 'r') as f:
+        ml_data = json.load(f)
+        
+   #app.run(debug = True, host = '0.0.0.0')
 
