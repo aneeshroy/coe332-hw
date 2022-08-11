@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ar68498-flask-deployment-test
+  labels:
+    username: ar68498
+    env: test
+    app: ar68498-flask-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ar68498-flask-test
+  template:
+    metadata:
+      labels:
+        app: ar68498-flask-test
+    spec:
+      containers:
+        - name: "flask-test"
+          imagePullPolicy: Always
+          image: aneeshroy/ml_data_redis:1.1
+          command: ['python3', 'app.py']
+          ports:
+          - name: http
+            containerPort: 5000
