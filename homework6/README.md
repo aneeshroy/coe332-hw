@@ -1,4 +1,4 @@
-# Homework 6: Into the Kubernetes-Verse
+# Into the Kubernetes-Verse: Deploying into a Cluster
 
 ## Overview
 
