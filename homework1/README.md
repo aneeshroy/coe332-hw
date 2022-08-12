@@ -1,4 +1,4 @@
-# Homework 1: As Good As Git Gets
+# As Good As Git Gets: Integrating into Github
 
 ## Description
 
