@@ -1,7 +1,7 @@
 
 # Million Dollar Diagram: Application Structural Visualization
 
-##Description
+## Description
 
 This homework houses a diagram that explains the routes a user can take in another project of mine, [O ISS, Where Art Thou?](https://github.com/aneeshroy/o-iss-where-art-thou)
 
