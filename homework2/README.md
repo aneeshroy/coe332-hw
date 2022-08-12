@@ -1,4 +1,4 @@
-# Homework 2: Return of the JSON
+# Return of the JSON: Robots and Data Formats
 
 ## Overview
 
