@@ -1,4 +1,4 @@
-# Homework 4: Once Upon a Time in Containers
+# Once Upon a Time in Containers: Using Docker Hub
 
 ## Description
 The purpose of this project is to develop a full application that can be utilized by anyone through Docker Hub.
